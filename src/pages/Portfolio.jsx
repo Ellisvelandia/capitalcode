@@ -1,98 +1,129 @@
-import { useState } from 'react';
+import React from 'react';
 
 const Portfolio = () => {
-  const [filter, setFilter] = useState('all');
-
   const projects = [
     {
-      id: 1,
-      title: 'E-commerce Platform',
-      client: 'Fashion Retail Co.',
-      type: 'ecommerce',
-      image: 'https://via.placeholder.com/400x300',
-      technologies: ['React', 'Node.js', 'MongoDB'],
+      title: 'E-commerce Moderno',
+      category: 'Desarrollo Web',
+      image: '/portfolio/ecommerce.jpg',
+      description: 'Plataforma de comercio electrónico con diseño responsivo y experiencia de usuario optimizada.',
+      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
     },
     {
-      id: 2,
-      title: 'Enterprise Dashboard',
-      client: 'Tech Solutions Inc.',
-      type: 'enterprise',
-      image: 'https://via.placeholder.com/400x300',
-      technologies: ['Vue.js', 'Python', 'PostgreSQL'],
+      title: 'App de Gestión Empresarial',
+      category: 'Software Empresarial',
+      image: '/portfolio/business-app.jpg',
+      description: 'Sistema integral de gestión empresarial con módulos de inventario, ventas y recursos humanos.',
+      technologies: ['Vue.js', 'Laravel', 'MySQL', 'Docker'],
     },
     {
-      id: 3,
-      title: 'Personal Portfolio',
-      client: 'John Designer',
-      type: 'personal',
-      image: 'https://via.placeholder.com/400x300',
-      technologies: ['React', 'Tailwind CSS'],
+      title: 'Aplicación Móvil de Fitness',
+      category: 'Desarrollo Móvil',
+      image: '/portfolio/fitness-app.jpg',
+      description: 'App móvil para seguimiento de rutinas de ejercicio y nutrición personalizada.',
+      technologies: ['React Native', 'Firebase', 'Node.js'],
+    },
+    {
+      title: 'Portal Educativo',
+      category: 'Plataforma Web',
+      image: '/portfolio/education.jpg',
+      description: 'Plataforma de aprendizaje en línea con cursos interactivos y seguimiento de progreso.',
+      technologies: ['Next.js', 'GraphQL', 'PostgreSQL'],
+    },
+    {
+      title: 'Sistema de Reservas',
+      category: 'Aplicación Web',
+      image: '/portfolio/booking.jpg',
+      description: 'Sistema de reservas en línea para restaurantes con gestión de mesas y pedidos.',
+      technologies: ['Angular', 'Express', 'MongoDB'],
+    },
+    {
+      title: 'Dashboard Analítico',
+      category: 'Business Intelligence',
+      image: '/portfolio/analytics.jpg',
+      description: 'Dashboard interactivo para visualización de datos empresariales en tiempo real.',
+      technologies: ['React', 'D3.js', 'Python', 'AWS'],
     },
   ];
-
-  const filters = [
-    { value: 'all', label: 'All' },
-    { value: 'ecommerce', label: 'E-commerce' },
-    { value: 'enterprise', label: 'Enterprise' },
-    { value: 'personal', label: 'Personal' },
-  ];
-
-  const filteredProjects = filter === 'all'
-    ? projects
-    : projects.filter(project => project.type === filter);
 
   return (
-    <div className="py-12">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-12">Our Portfolio</h1>
-        
-        {/* Filters */}
-        <div className="flex justify-center gap-4 mb-8">
-          {filters.map((filterOption) => (
-            <button
-              key={filterOption.value}
-              onClick={() => setFilter(filterOption.value)}
-              className={`px-4 py-2 rounded-md ${
-                filter === filterOption.value
-                  ? 'bg-primary text-white'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              } transition-colors duration-200`}
-            >
-              {filterOption.label}
-            </button>
-          ))}
+    <div className="animate-fade-in">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-brand-950 to-brand-900 py-20">
+        <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">
+            Nuestro Portafolio
+          </h1>
+          <p className="text-lg md:text-xl text-surface-200 max-w-3xl mx-auto">
+            Descubra cómo hemos ayudado a empresas a transformar sus ideas 
+            en soluciones digitales exitosas.
+          </p>
         </div>
+      </section>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200"
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">Client: {project.client}</p>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
-                    >
-                      {tech}
+      {/* Portfolio Grid */}
+      <section className="py-20 bg-surface-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <div 
+                key={project.title}
+                className="group bg-white rounded-xl shadow-soft overflow-hidden hover:shadow-glow transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className="aspect-w-16 aspect-h-9 bg-surface-100">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-semibold text-brand-900">
+                      {project.title}
+                    </h3>
+                    <span className="text-sm font-medium text-accent-600 bg-accent-50 px-3 py-1 rounded-full">
+                      {project.category}
                     </span>
-                  ))}
+                  </div>
+                  <p className="text-surface-600 mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs font-medium text-surface-500 bg-surface-100 px-2 py-1 rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-brand-900 to-brand-800 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-white mb-6">
+            ¿Listo para Comenzar su Proyecto?
+          </h2>
+          <p className="text-surface-200 mb-8 max-w-2xl mx-auto">
+            Permítanos ayudarle a convertir su visión en una solución digital exitosa.
+          </p>
+          <a
+            href="/contact"
+            className="inline-flex items-center px-8 py-4 rounded-lg bg-accent-500 hover:bg-accent-600 text-white font-medium transition-colors duration-200 shadow-glow-accent"
+          >
+            Contáctenos
+          </a>
+        </div>
+      </section>
     </div>
   );
 };

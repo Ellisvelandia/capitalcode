@@ -40,7 +40,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <Link to="/" className="inline-block group">
               <img 
-                src="/logo.jpg" 
+                src="/logo.png" 
                 alt="Capital Code Logo" 
                 className="h-12 w-auto mb-4 transition-transform duration-300 group-hover:scale-105" 
               />
