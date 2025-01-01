@@ -44,9 +44,9 @@ const Navbar = () => {
             >
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2">
                 <img
-                  className="h-12 w-auto transition-transform duration-300 group-hover:scale-105 mix-blend-plus-lighter"
-                  src="/logo.png"
+                  src="/logo.svg"
                   alt="Capital Code Logo"
+                  className="h-12 w-auto transition-all duration-300 group-hover:scale-105 group-hover:brightness-110"
                 />
               </div>
             </Link>

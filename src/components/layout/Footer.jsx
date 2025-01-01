@@ -41,7 +41,7 @@ const Footer = () => {
             <Link to="/" className="inline-block group">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2 mb-4">
                 <img 
-                  src="/logo.png" 
+                  src="/logo.svg" 
                   alt="Capital Code Logo" 
                   className="h-14 w-auto transition-transform duration-300 group-hover:scale-105 mix-blend-plus-lighter" 
                 />
