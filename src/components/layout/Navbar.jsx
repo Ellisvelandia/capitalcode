@@ -42,11 +42,13 @@ const Navbar = () => {
               className="flex items-center group"
               aria-label="Inicio"
             >
-              <img
-                className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
-                src="/logo.png"
-                alt="Capital Code Logo"
-              />
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-2">
+                <img
+                  className="h-12 w-auto transition-transform duration-300 group-hover:scale-105 mix-blend-plus-lighter"
+                  src="/logo.png"
+                  alt="Capital Code Logo"
+                />
+              </div>
             </Link>
           </div>
 
